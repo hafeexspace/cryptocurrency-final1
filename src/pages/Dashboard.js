@@ -6,10 +6,13 @@ import axios from "axios";
 import { Coin } from "../components/Coin";
 
 import styled from "styled-components";
+import Session from "../components/Session";
 
 export function Dashboard() {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
+
+  const [session, setSession] = useState(null);
 
   useEffect(() => {
     axios
@@ -30,7 +33,7 @@ export function Dashboard() {
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  const { signOut } = useAuth();
+  const { user, signOut } = useAuth();
 
   const history = useHistory();
 
@@ -46,9 +49,11 @@ export function Dashboard() {
     <MainCointaner>
       <Nav>
         <Li>
-          <button onClick={onSignOut}>Sign out</button>
+          <Session />
         </Li>
-        <Li>Cryptocurrency Price Tracker</Li>
+        <Li>
+          <Button onClick={onSignOut}>Sign out</Button>
+        </Li>
       </Nav>
 
       <CoinApp>
@@ -121,4 +126,17 @@ const Nav = styled.ul`
 
 const Li = styled.li`
   margin-top: 50px;
+`;
+
+const Button = styled.button`
+  color: #000 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
 `;

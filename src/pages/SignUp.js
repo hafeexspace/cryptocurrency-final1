@@ -34,6 +34,7 @@ export function SignUp() {
 
   return (
     <Div>
+      <Text>Hello Stranger,</Text>
       <Form onSubmit={handleSubmit}>
         <label htmlFor="input-name">Name</label>
         <input id="input-name" type="name" ref={nameRef} />
@@ -46,7 +47,7 @@ export function SignUp() {
 
         <br />
 
-        <button type="submit">Sign up</button>
+        <Button type="submit">Sign up</Button>
         <p>
           Already have an account? <Link to="/login">Log In</Link>
         </p>
@@ -61,6 +62,7 @@ const Div = styled.div`
   justify-content: center;
   width: 100%;
   height: 100vh;
+  flex-direction: column;
 `;
 
 const Form = styled.form`
@@ -75,4 +77,25 @@ const Form = styled.form`
   margin: 10px 0
   text-align: center;
   gap: 5px;
+`;
+
+const Text = styled.h1`
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 50px;
+  font-weight: 200;
+  font-family: "Montserrat", sans-serif;
+`;
+
+const Button = styled.button`
+  color: #000 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
 `;

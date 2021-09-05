@@ -33,6 +33,7 @@ export function Login() {
 
   return (
     <Div>
+      <Text>Welcome Back!</Text>
       <Form onSubmit={handleSubmit}>
         <label htmlFor="input-email">Email</label>
         <input id="input-email" type="email" ref={emailRef} />
@@ -42,7 +43,7 @@ export function Login() {
 
         <br />
 
-        <button type="submit">Login</button>
+        <Button type="submit">Login</Button>
         <p>
           Don't have an account? <Link to="/signup">Sign Up</Link>
         </p>
@@ -57,6 +58,7 @@ const Div = styled.div`
   justify-content: center;
   width: 100%;
   height: 100vh;
+  flex-direction: column;
 `;
 
 const Form = styled.form`
@@ -71,4 +73,25 @@ const Form = styled.form`
   margin: 10px 0
   text-align: center;
   gap: 5px;
+`;
+
+const Button = styled.button`
+  color: #000 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+`;
+
+const Text = styled.h1`
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 50px;
+  font-weight: 200;
+  font-family: "Montserrat", sans-serif;
 `;

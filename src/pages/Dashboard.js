@@ -12,8 +12,6 @@ export function Dashboard() {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
 
-  const [session, setSession] = useState(null);
-
   useEffect(() => {
     axios
       .get(
@@ -33,7 +31,7 @@ export function Dashboard() {
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  const { user, signOut } = useAuth();
+  const { signOut } = useAuth();
 
   const history = useHistory();
 
